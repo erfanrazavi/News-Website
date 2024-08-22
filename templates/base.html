@@ -87,7 +87,7 @@
 
 <body>
 <!-- Preloader START -->
-	<div class="preloader">
+	<div class="preloader" style="display:none;">
 		<div class="loader">
 			<div class="sh1"></div>
 			<div class="sh2"></div>
@@ -128,15 +128,15 @@
 			<!-- Nav START -->
 			<ul class="nav d-block flex-column my-4">
 				<li class="nav-item h5">
-					<a class="nav-link" href="index.html">خانه</a>
+					<a class="nav-link" href="{% url "index:index" %}">خانه</a>
 				<li class="nav-item h5">
-					<a class="nav-link" href="about-us.html">درباره ما</a>
+					<a class="nav-link" href="{% url "index:about" %}">درباره ما</a>
 				</li>
 				<li class="nav-item h5">
 					<a class="nav-link" href="post-grid.html">خواندنی ها</a>
 				</li>
 				<li class="nav-item h5">
-					<a class="nav-link" href="contact-us.html">تماس با ما</a>
+					<a class="nav-link" href="{% url "index:about" %}">تماس با ما</a>
 				</li>
 			</ul>
 			<!-- Nav END -->
@@ -167,16 +167,14 @@ Header START -->
 				<!-- Top bar left -->
 				<ul class="nav">
 					<li class="nav-item">
-						<a class="nav-link ps-0" href="about-us.html">درباره ما</a>
+						<a class="nav-link ps-0" href="{% url "index:about" %}">درباره ما</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">آرشیو</a>
 					</li>
+					
 					<li class="nav-item">
-						<a class="nav-link" href="https://www.rtl-theme.com/blogzine-html-template/">خرید قالب</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="signin.html">ورود / ثبت نام</a>
+						<a class="nav-link" href="{% url "index:signin" %}">ورود / ثبت نام</a>
 					</li>
 				</ul>
 				<!-- Top bar right -->
@@ -284,7 +282,7 @@ Header START -->
 						<a class="nav-link dropdown-toggle" href="#" id="pagesMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">صفحات</a>
 						<ul class="dropdown-menu" aria-labelledby="pagesMenu">
 							<li> <a class="dropdown-item" href="{% url "index:about" %}">درباره ما</a></li>
-							<li> <a class="dropdown-item" href="contact-us.html">تماس با ما</a></li>
+							<li> <a class="dropdown-item" href="{% url "index:contact" %}">تماس با ما</a></li>
 							<!-- Dropdown submenu -->
 							<li class="dropdown-submenu dropend"> 
 								<a class="dropdown-item dropdown-toggle" href="#">فروشگاه <span class="badge bg-danger smaller me-1">جدید</span></a>
@@ -299,8 +297,8 @@ Header START -->
 							<!-- Dropdown submenu -->
 							
 							
-							<li> <a class="dropdown-item" href="signin.html">ورود</a></li>
-							<li> <a class="dropdown-item" href="signup.html">ثبت نام</a></li>
+							<li> <a class="dropdown-item" href="{% url "index:signin" %}">ورود</a></li>
+							<li> <a class="dropdown-item" href="{% url "index:signup" %}">ثبت نام</a></li>
 							
 							<!-- Dropdown submenu levels -->
 							
@@ -314,7 +312,7 @@ Header START -->
 						<a class="nav-link dropdown-toggle" href="#" id="postMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">اخبار</a>
 						<ul class="dropdown-menu" aria-labelledby="postMenu">
 							<!-- dropdown submenu -->
-							
+							<li> <a class="dropdown-item" href="post-list.html">همه ی خبر ها</a> </li>
 							<li> <a class="dropdown-item" href="post-list.html">ورزشی</a> </li>
 							<li> <a class="dropdown-item" href="post-list-2.html">اقتصادی</a> </li>
 							<li> <a class="dropdown-item" href="post-cards.html">فرهنگی</a> </li>

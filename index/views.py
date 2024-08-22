@@ -9,3 +9,9 @@ def about_views(request):
 
 def contact_views(request):
     return render(request ,'website/contact-us.html')
+
+def signin_views(request):
+    return render(request ,'website/signin.html')
+
+def signup_views(request):
+    return render(request ,'website/signup.html')
