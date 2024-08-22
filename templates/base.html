@@ -274,8 +274,15 @@ Header START -->
 
 					<!-- Nav item 1 Demos -->
 					<li class="nav-item dropdown">
-						<a class="nav-link  active" href="#" id="homeMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">خانه</a>
+						<a class="nav-link  active" href="{% url "index:index" %}" id="homeMenu"  aria-haspopup="true" aria-expanded="false">خانه</a>
+                        
 					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link " href="{% url "blog:blog-home" %}" id="homeMenu"  aria-haspopup="true" aria-expanded="false">پست ها</a>
+                        
+					</li>
+
+                 
 
 					<!-- Nav item 2 Pages -->
 					<li class="nav-item dropdown">
@@ -309,10 +316,10 @@ Header START -->
 
 					<!-- Nav item 3 Post -->
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="postMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">اخبار</a>
+						<a class="nav-link dropdown-toggle" href="#" id="postMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">دسته بندی </a>
 						<ul class="dropdown-menu" aria-labelledby="postMenu">
 							<!-- dropdown submenu -->
-							<li> <a class="dropdown-item" href="post-list.html">همه ی خبر ها</a> </li>
+							
 							<li> <a class="dropdown-item" href="post-list.html">ورزشی</a> </li>
 							<li> <a class="dropdown-item" href="post-list-2.html">اقتصادی</a> </li>
 							<li> <a class="dropdown-item" href="post-cards.html">فرهنگی</a> </li>
@@ -321,6 +328,8 @@ Header START -->
 							
 						</ul>
 					</li>
+
+                    
 
 					<!-- Nav item 4 Mega menu -->
 					<li class="nav-item dropdown dropdown-fullwidth">
