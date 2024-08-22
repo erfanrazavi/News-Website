@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load jformat %}
 {% block content %}
 <!-- **************** MAIN CONTENT START **************** -->
 <main>
@@ -34,15 +35,21 @@ Main content START -->
 			<!-- Main Post START -->
 			<div class="col-lg-9">
 				<!-- Card item START -->
+				 {% for post in posts %}
 				<div class="card mb-4">
 					<div class="row">
 						<div class="col-md-5">
-							<img class="rounded-3" src="{%static 'assets/images/blog/4by3/01.jpg' %}" alt="">
+							{% if post.image %} 
+							<img class="rounded-3" src="{{post.image.url}}" alt="{{post.title}}">
+								
+							{% else %}
+							<p>تصویری برای این پست وجود ندارد.</p>
+							{% endif %}
 						</div>
 						<div class="col-md-7 mt-3 mt-md-0">
 							<a href="#" class="badge text-bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>اقتصاد</a>
-							<h4><a href="post-single-2.html" class="btn-link stretched-link text-reset">حضور ایرانسل در رویداد فناورانه خودروهای آینده</a></h4>
-							<p>حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی...</p>
+							<h4><a href="{% url "blog:blog-single" pid=post.id%}" class="btn-link stretched-link text-reset"> {{post.title}}</a></h4>
+							<p>{{post.content|truncatechars:100}}</p>
 							<!-- Card info -->
 							<ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
 								<li class="nav-item">
@@ -51,155 +58,19 @@ Main content START -->
 											<div class="avatar avatar-xs">
 												<img class="avatar-img rounded-circle" src="{%static 'assets/images/avatar/01.jpg' %}" alt="avatar">
 											</div>
-											<span class="ms-3">با <a href="#" class="stretched-link text-reset btn-link">نیلوفر راد</a></span>
+											<span class="ms-3">با <a href="#" class="stretched-link text-reset btn-link">{{post.author.get_full_name}}</a></span>
 										</div>
 									</div>
 								</li>
-								<li class="nav-item">22 آذر، 1400</li>
+								<li class="nav-item">{{post.published_date|jformat:"%Y/%m/%d"}}</li>
 							</ul>
 						</div>
 					</div>
 				</div>
+				{% endfor %}
 				<!-- Card item END -->
 				<!-- Card item START -->
-				<div class="card mb-4">
-					<div class="row">
-						<div class="col-md-5">
-							<img class="rounded-3" src="{%static 'assets/images/blog/4by3/02.jpg' %}" alt="">
-						</div>
-						<div class="col-md-7 mt-3 mt-md-0">
-							<a href="#" class="badge text-bg-info mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>ورزش</a>
-							<h4><a href="post-single-2.html" class="btn-link stretched-link text-reset">هشدار درباره یک بیماری حاد تنفسی در سرما</a></h4>
-							<p>حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی...</p>
-							<!-- Card info -->
-							<ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-								<li class="nav-item">
-									<div class="nav-link">
-										<div class="d-flex align-items-center position-relative">
-											<div class="avatar avatar-xs">
-												<img class="avatar-img rounded-circle" src="{%static 'assets/images/avatar/02.jpg' %}" alt="avatar">
-											</div>
-											<span class="ms-3">با <a href="#" class="stretched-link text-reset btn-link">مهدی کرمی</a></span>
-										</div>
-									</div>
-								</li>
-								<li class="nav-item">7 دی، 1400</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!-- Card item END -->
-				<!-- Card item START -->
-				<div class="card mb-4">
-					<div class="row">
-						<div class="col-md-5">
-							<img class="rounded-3" src="{%static 'assets/images/blog/4by3/03.jpg' %}" alt="">
-						</div>
-						<div class="col-md-7 mt-3 mt-md-0">
-							<a href="#" class="badge text-bg-success mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>سیاست</a>
-							<h4><a href="post-single-2.html" class="btn-link stretched-link text-reset">پنج حقیقت باورنکردنی در مورد پول</a></h4>
-							<p>حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی...</p>
-							<!-- Card info -->
-							<ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-								<li class="nav-item">
-									<div class="nav-link">
-										<div class="d-flex align-items-center position-relative">
-											<div class="avatar avatar-xs">
-												<img class="avatar-img rounded-circle" src="{%static 'assets/images/avatar/03.jpg' %}" alt="avatar">
-											</div>
-											<span class="ms-3">با <a href="#" class="stretched-link text-reset btn-link">سعید گنجی</a></span>
-										</div>
-									</div>
-								</li>
-								<li class="nav-item">17 تیر، 1400</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!-- Card item END -->
-				<!-- Card item START -->
-				<div class="card mb-4">
-					<div class="row">
-						<div class="col-md-5">
-							<img class="rounded-3" src="{%static 'assets/images/blog/4by3/04.jpg' %}" alt="">
-						</div>
-						<div class="col-md-7 mt-3 mt-md-0">
-							<a href="#" class="badge text-bg-warning mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>تکنولوژی</a>
-							<h4><a href="post-single-2.html" class="btn-link stretched-link text-reset">سال 2022 رویایی و فوق العاده برای طارمی</a></h4>
-							<p>حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی...</p>
-							<!-- Card info -->
-							<ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-								<li class="nav-item">
-									<div class="nav-link">
-										<div class="d-flex align-items-center position-relative">
-											<div class="avatar avatar-xs">
-												<img class="avatar-img rounded-circle" src="{%static 'assets/images/avatar/05.jpg' %}" alt="avatar">
-											</div>
-											<span class="ms-3">با <a href="#" class="stretched-link text-reset btn-link">نگین جوان</a></span>
-										</div>
-									</div>
-								</li>
-								<li class="nav-item">11 مهر، 1400</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!-- Card item END -->
-				<!-- Card item START -->
-				<div class="card mb-4">
-					<div class="row">
-						<div class="col-md-5">
-							<img class="rounded-3" src="{%static 'assets/images/blog/4by3/05.jpg' %}" alt="">
-						</div>
-						<div class="col-md-7 mt-3 mt-md-0">
-							<a href="#" class="badge text-bg-primary mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>فرهنگ</a>
-							<h4><a href="post-single-2.html" class="btn-link stretched-link text-reset">طرح مجلس برای گرفتن مالیات از سفته بازها</a></h4>
-							<p>حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی...</p>
-							<!-- Card info -->
-							<ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-								<li class="nav-item">
-									<div class="nav-link">
-										<div class="d-flex align-items-center position-relative">
-											<div class="avatar avatar-xs">
-												<img class="avatar-img rounded-circle" src="{%static 'assets/images/avatar/06.jpg' %}" alt="avatar">
-											</div>
-											<span class="ms-3">با <a href="#" class="stretched-link text-reset btn-link">سارا موحد</a></span>
-										</div>
-									</div>
-								</li>
-								<li class="nav-item">22 تیر، 1400</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!-- Card item END -->
-				<!-- Card item START -->
-				<div class="card mb-4">
-					<div class="row">
-						<div class="col-md-5">
-							<img class="rounded-3" src="{%static 'assets/images/blog/4by3/06.jpg' %}" alt="">
-						</div>
-						<div class="col-md-7 mt-3 mt-md-0">
-							<a href="#" class="badge text-bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>فیلم</a>
-							<h4><a href="post-single-2.html" class="btn-link stretched-link text-reset">رونمایی از طرح بزرگترین تلسکوپ نوری آسیا</a></h4>
-							<p>حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی...</p>
-							<!-- Card info -->
-							<ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-								<li class="nav-item">
-									<div class="nav-link">
-										<div class="d-flex align-items-center position-relative">
-											<div class="avatar avatar-xs">
-												<img class="avatar-img rounded-circle" src="{%static 'assets/images/avatar/07.jpg' %}" alt="avatar">
-											</div>
-											<span class="ms-3">با <a href="#" class="stretched-link text-reset btn-link">شادی علیزاده</a></span>
-										</div>
-									</div>
-								</li>
-								<li class="nav-item">30 شهریور، 1400</li>
-							</ul>
-						</div>
-					</div>
-				</div>
+			
 				<!-- Card item END -->
 				<!-- Pagination START -->
 				<nav class="my-5" aria-label="navigation">
@@ -319,12 +190,7 @@ Main content START -->
 						<!-- Recent post widget END -->
 
 						<!-- ADV widget START -->
-						<div class="col-12 col-sm-6 col-lg-12 my-4">
-							<a href="#" class="d-block card-img-flash">
-								<img src="{%static 'assets/images/adv.png' %}" alt="">
-							</a>
-							<div class="smaller text-end mt-2">تبلیغ در سایت <a href="#" class="text-body-secondary"><u>انتخاب</u></a></div>
-						</div>
+						{% include "blog/ads_left_all.html" %}
 						<!-- ADV widget END -->
 					</div>
 				</div>

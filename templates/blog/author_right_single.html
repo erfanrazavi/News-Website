@@ -1,0 +1,40 @@
+{% load static %}
+{% load jformat %}
+<div class="col-lg-2">
+    <div class="text-start text-lg-center mb-5" data-sticky data-margin-top="80" data-sticky-for="991">
+        <!-- Author info -->
+        <div class="position-relative">
+            <div class="avatar avatar-xl">
+                <img class="avatar-img rounded-circle" src="{%static 'assets/images/avatar/03.jpg' %}" alt="avatar">
+            </div>
+            <a href="#" class="h5 stretched-link mt-2 mb-0 d-block">{{posts.author.get_full_name}}</a>
+            <p>روزنامه نگار</p>
+        </div>
+        <hr class="d-none d-lg-block">
+        <!-- Card info -->
+        <ul class="list-inline list-unstyled">
+            <li class="list-inline-item d-lg-block my-lg-2">{{posts.published_date|jformat:"%Y/%m/%d"}}</li>
+            <li class="list-inline-item d-lg-block my-lg-2">5 دقیقه زمان مطالعه</li>
+            <li class="list-inline-item d-lg-block my-lg-2"><a href="#" class="text-body"><i class="far fa-heart me-1"></i></a> 266</li>
+            <li class="list-inline-item d-lg-block my-lg-2"><i class="far fa-eye me-1"></i> {{posts.counted_views}}</li>
+        </ul>
+        <!-- Tags -->
+        <ul class="list-inline text-primary-hover mt-0 mt-lg-3">
+          <li class="list-inline-item">
+              <a class="text-body" href="#">#ورزش</a>
+          </li>
+          <li class="list-inline-item">
+              <a class="text-body" href="#">#فیلم</a>
+          </li>
+          <li class="list-inline-item">
+              <a class="text-body" href="#">#رسانه</a>
+          </li>
+          <li class="list-inline-item">
+              <a class="text-body" href="#">#برگزیده</a>
+          </li>
+          <li class="list-inline-item">
+              <a class="text-body" href="#">#استارت آپ</a>
+          </li>
+        </ul>
+    </div>
+</div>

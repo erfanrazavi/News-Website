@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load jformat %}
 {% load static %}
 {% block content %}
 <!-- **************** MAIN CONTENT START **************** -->
@@ -13,9 +14,9 @@ Inner intro START -->
 		<div class="row">
 			<div class="col-12">
         <a href="#" class="badge text-bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>سیاست</a>
-				<h1>آشنایی با کلید موفقیت نهضت ملی مسکن‌</h1>
+				<h1> {{posts.title}} </h1>
 			</div>
-			 <p class="lead">طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+			 
 		</div>
 	</div>
 </section>
@@ -28,118 +29,19 @@ Main START -->
 	<div class="container position-relative" data-sticky-container>
 		<div class="row">
 			<!-- Left sidebar START -->
-			<div class="col-lg-2">
-				<div class="text-start text-lg-center mb-5" data-sticky data-margin-top="80" data-sticky-for="991">
-					<!-- Author info -->
-					<div class="position-relative">
-						<div class="avatar avatar-xl">
-							<img class="avatar-img rounded-circle" src="assets/images/avatar/03.jpg" alt="avatar">
-						</div>
-						<a href="#" class="h5 stretched-link mt-2 mb-0 d-block">مهدی علیزاده</a>
-						<p>روزنامه نگار</p>
-					</div>
-					<hr class="d-none d-lg-block">
-					<!-- Card info -->
-					<ul class="list-inline list-unstyled">
-						<li class="list-inline-item d-lg-block my-lg-2">15 مهر، 1400</li>
-						<li class="list-inline-item d-lg-block my-lg-2">5 دقیقه زمان مطالعه</li>
-						<li class="list-inline-item d-lg-block my-lg-2"><a href="#" class="text-body"><i class="far fa-heart me-1"></i></a> 266</li>
-						<li class="list-inline-item d-lg-block my-lg-2"><i class="far fa-eye me-1"></i> 2344 بازدید</li>
-					</ul>
-					<!-- Tags -->
-					<ul class="list-inline text-primary-hover mt-0 mt-lg-3">
-					  <li class="list-inline-item">
-					  	<a class="text-body" href="#">#ورزش</a>
-					  </li>
-					  <li class="list-inline-item">
-					  	<a class="text-body" href="#">#فیلم</a>
-					  </li>
-					  <li class="list-inline-item">
-					  	<a class="text-body" href="#">#رسانه</a>
-					  </li>
-					  <li class="list-inline-item">
-					  	<a class="text-body" href="#">#برگزیده</a>
-					  </li>
-					  <li class="list-inline-item">
-					  	<a class="text-body" href="#">#استارت آپ</a>
-					  </li>
-					</ul>
-				</div>
-			</div>
+
+
+			{% include "blog/author_right_single.html" %}
+
+
+
 			<!-- Left sidebar END -->
 			<!-- Main Content START -->
 			<div class="col-lg-7 mb-5">
       	<p><span class="dropcap">M</span>ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
 				<p>دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد. <a href="#" class="text-reset"><u>روزنامه فارس</u></a> شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.</p>
 				<!-- Image -->
-				<figure class="figure mt-2">
-				  <a href="assets/images/blog/3by2/04.jpg" data-glightbox data-gallery="image-popup">
-		      	<img class="rounded" src="assets/images/blog/3by2/04.jpg" alt="Image">
-		       </a>
-				  <figcaption class="figure-caption text-center">(عکاس: <a class="text-reset" href="#">pexels.com</a>)</figcaption>
-				</figure>
-
-				<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                     </p>
-
-				<!-- Divider -->
-				<div class="text-center h5 mb-4">. . .</div>
-
-				<!-- Images -->
-				<div class="row">
-					<div class="col-md-6 mb-4">
-						<a href="assets/images/blog/4by3/03.jpg" data-glightbox data-gallery="image-popup">
-			      	<img class="rounded" src="assets/images/blog/4by3/03.jpg" alt="Image">
-			       </a>
-					</div>
-					<div class="col-md-6 mb-4">
-						<a href="assets/images/blog/4by3/04.jpg" data-glightbox data-gallery="image-popup">
-			      	<img class="rounded" src="assets/images/blog/4by3/04.jpg" alt="Image">
-			       </a>
-					</div>
-				</div>
-				<p>برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
-				
-				<h3 class="mt-4">شعار مولد در مورد تجارت</h3>
-				<div class="row mb-4">
-					<div class="col-md-6">
-						<p>چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت.
-						</p>
-					</div>
-					<div class="col-md-6">
-						<p>با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
-					</div>
-				</div>
-				<p>وقتی ثروت‌ های بزرگ به دست برخی مردم می‌افتد در پرتو آن نیرومند می‌شوند و در سایهٔ نیرومندی و ثروت خیال می‌ کنند که می‌توانند در خارج از وطن خود زندگی نمایند و خوشبخت و سرافراز باشند ولی به زودی می‌ فهمند که اشتباه کرده‌ اند و عظمت هر ملتی بر روی خرابه‌ های وطن خودش می‌باشد و بس!</p>
-
-				<!-- blockquote -->
-				<figure class="my-5">
-				  <blockquote class="blockquote">
-				    <p>در سایهٔ نیرومندی و ثروت خیال می‌ کنند که می‌توانند در خارج از وطن خود زندگی نمایند و خوشبخت و سرافراز باشند.</p>
-				  </blockquote>
-				  <figcaption class="blockquote-footer">
-				    حسین صادقی
-				  </figcaption>
-				</figure>
-
-				<p> تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.</p>
-
-				<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی <img src="assets/images/blog/4by3/thumb/03.jpg" class="rounded float-start me-3 mt-3" alt="..."> استفاده از این متن تستی می تواند سرعت پیشرفت پروژه را افزایش دهد، و طراحان به جای تایپ و نگارش متن می توانند تنها با یک کپی و پست این متن را در کادرهای مختلف جایگزین نمائید. این نوشته توسط سایت لورم ایپسوم فارسی نگاشته شده است. این یک نوشته آزمایشی است که به طراحان و برنامه نویسان کمک میکند تا این عزیزان با بهره گیری از این نوشته تستی و آزمایشی بتوانند نمونه تکمیل شده از پروژه و طرح خودشان را به کارفرما نمایش دهند، استفاده از این متن تستی می تواند سرعت پیشرفت پروژه را افزایش دهد، و طراحان به جای تایپ و نگارش متن می توانند تنها با یک کپی و پست این متن را در کادرهای مختلف جایگزین نمائید.
-				 <mark> ممکن است طولانی‌ تر در یک حباب صابون می‌ دمیم تا بزرگتر شود، گر چه با قطعیتی تمام می‌ دانیم که خواهد ترکید.</mark> در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد. </p>
-								
-				<!-- Light bg content -->
-				<div class="bg-light p-3 p-md-4">
-					<q class="lead"> گواهی است که در آن بازیِ بود و نمود هیچ‌ جایی ندارد. پس من در مسرتِ عشق ورزیدن به یک ناشناس غرق می‌شوم، کسی که تا ابد ناشناس خواهد ماند. سِیری عارفانه: من آن‌چه را نمی‌شناسم می‌شناسم...!</q>
-				</div>
-
-				<!-- twitter embed code -->
-				<div class="mx-auto w-100 d-flex justify-content-center my-5">
-					<blockquote class="twitter-tweet"><p>این راست نیست که هرچه عاشق‌ تر باشی بهتر درک می‌کنی. همه‌ی آنچه عشق و عاشقی از من می‌ خواهد فقط درکِ این حکمت است: دیگری نشناختنی است؛ ماتیِ او پرده‌ی ابهامی به روی یک راز نیست، بل گواهی است که در آن بازیِ بود و نمود هیچ‌ جایی ندارد.<a href="#"> https://www.rtl-theme.com</a></p>&mdash; راست چین (فروش قالب) <a href="#">23 بهمن، 1400</a></blockquote> <script async src="../../platform.twitter.com/widgets.js" charset="utf-8"></script>
-				</div>
-
-				<h3>چرا بوت استرپ اینقدر معروف است؟</h3>
-				<p>با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
-				<a href="#" class="btn btn-primary-soft">دانلود!</a>
+				{{posts.content}}
 
 				<!-- Divider -->
 				<div class="text-center h5 mb-4">. . .</div>
@@ -175,7 +77,7 @@ Main START -->
 							<div class="card">
 								<!-- Card img -->
 								<div class="position-relative">
-									<img class="card-img" src="assets/images/blog/4by3/07.jpg" alt="Card image">
+									<img class="card-img" src="{%static 'assets/images/blog/4by3/07.jpg' %}" alt="Card image">
 									<div class="card-img-overlay d-flex align-items-start flex-column p-3">
 										<!-- Card overlay Top -->
 										<div class="w-100 mb-auto d-flex justify-content-end">
@@ -198,7 +100,7 @@ Main START -->
 											<div class="nav-link">
 												<div class="d-flex align-items-center position-relative">
 													<div class="avatar avatar-xs">
-														<img class="avatar-img rounded-circle" src="assets/images/avatar/07.jpg" alt="avatar">
+														<img class="avatar-img rounded-circle" src="{%static 'assets/images/avatar/07.jpg' %}" alt="avatar">
 													</div>
 													<span class="ms-3">با <a href="#" class="stretched-link text-reset btn-link">مریم ترابی</a></span>
 												</div>
@@ -213,7 +115,7 @@ Main START -->
 							<div class="card">
 								<!-- Card img -->
 								<div class="position-relative">
-									<img class="card-img" src="assets/images/blog/4by3/08.jpg" alt="Card image">
+									<img class="card-img" src="{%static 'assets/images/blog/4by3/08.jpg' %}" alt="Card image">
 									<div class="card-img-overlay d-flex align-items-start flex-column p-3">
 										<!-- Card overlay bottom -->
 										<div class="w-100 mt-auto">
@@ -229,7 +131,7 @@ Main START -->
 											<div class="nav-link">
 												<div class="d-flex align-items-center position-relative">
 													<div class="avatar avatar-xs">
-														<img class="avatar-img rounded-circle" src="assets/images/avatar/08.jpg" alt="avatar">
+														<img class="avatar-img rounded-circle" src="{%static 'assets/images/avatar/08.jpg' %}" alt="avatar">
 													</div>
 													<span class="ms-3">با <a href="#" class="stretched-link text-reset btn-link">سارا موحد</a></span>
 												</div>
@@ -244,7 +146,7 @@ Main START -->
 							<div class="card">
 								<!-- Card img -->
 								<div class="position-relative">
-									<img class="card-img" src="assets/images/blog/4by3/09.jpg" alt="Card image">
+									<img class="card-img" src="{%static 'assets/images/blog/4by3/09.jpg' %}" alt="Card image">
 									<div class="card-img-overlay d-flex align-items-start flex-column p-3">
 										<!-- Card overlay bottom -->
 										<div class="w-100 mt-auto">
@@ -260,7 +162,7 @@ Main START -->
 											<div class="nav-link">
 												<div class="d-flex align-items-center position-relative">
 													<div class="avatar avatar-xs">
-														<img class="avatar-img rounded-circle" src="assets/images/avatar/09.jpg" alt="avatar">
+														<img class="avatar-img rounded-circle" src="{%static 'assets/images/avatar/09.jpg' %}" alt="avatar">
 													</div>
 													<span class="ms-3">با <a href="#" class="stretched-link text-reset btn-link">لیلا رزاق</a></span>
 												</div>
@@ -284,7 +186,7 @@ Main START -->
 					<!-- Avatar -->
 					<a href="#">
 						<div class="avatar avatar-xxl me-4">
-							<img class="avatar-img rounded-circle" src="assets/images/avatar/03.jpg" alt="avatar">
+							<img class="avatar-img rounded-circle" src="{%static 'assets/images/avatar/03.jpg' %}" alt="avatar">
 						</div>
 					</a>
 					<!-- Info -->
@@ -321,7 +223,7 @@ Main START -->
 					<h3>5 دیدگاه</h3>
 					<!-- Comment level 1-->
 					<div class="my-4 d-flex">
-					  <img class="avatar avatar-md rounded-circle float-start me-3" src="assets/images/avatar/01.jpg" alt="avatar">
+					  <img class="avatar avatar-md rounded-circle float-start me-3" src="{%static 'assets/images/avatar/01.jpg' %}" alt="avatar">
 					  <div>
 					    <div class="mb-2">
 					    	<h5 class="m-0">شادی اسدی</h5>
@@ -333,7 +235,7 @@ Main START -->
 					</div>
 						<!-- Comment children level 2 -->
 						<div class="my-4 d-flex ps-2 ps-md-3">
-						  <img class="avatar avatar-md rounded-circle float-start me-3" src="assets/images/avatar/02.jpg" alt="avatar">
+						  <img class="avatar avatar-md rounded-circle float-start me-3" src="{%static 'assets/images/avatar/02.jpg' %}" alt="avatar">
 						  <div>
 						    <div class="mb-2">
 						    	<h5 class="m-0">علی قنبرزاده</h5>
@@ -345,7 +247,7 @@ Main START -->
 						</div>
 							<!-- Comment children level 3 -->
 							<div class="my-4 d-flex ps-3 ps-md-5">
-							  <img class="avatar avatar-md rounded-circle float-start me-3" src="assets/images/avatar/01.jpg" alt="avatar">
+							  <img class="avatar avatar-md rounded-circle float-start me-3" src="{%static 'assets/images/avatar/01.jpg' %}" alt="avatar">
 							  <div>
 							    <div class="mb-2">
 							    	<h5 class="m-0">مونا شاه حسینی</h5>
@@ -357,7 +259,7 @@ Main START -->
 							</div>
 						<!-- Comment level 2 -->
 						<div class="my-4 d-flex ps-2 ps-md-3">
-						  <img class="avatar avatar-md rounded-circle float-start me-3" src="assets/images/avatar/03.jpg" alt="avatar">
+						  <img class="avatar avatar-md rounded-circle float-start me-3" src="{%static 'assets/images/avatar/03.jpg' %}" alt="avatar">
 						  <div>
 						    <div class="mb-2">
 						    	<h5 class="m-0">مهرداد نوری</h5>
@@ -369,7 +271,7 @@ Main START -->
 						</div>
 					<!-- Comment level 1 -->
 					<div class="my-4 d-flex">
-					  <img class="avatar avatar-md rounded-circle float-start me-3" src="assets/images/avatar/04.jpg" alt="avatar">
+					  <img class="avatar avatar-md rounded-circle float-start me-3" src="{%static 'assets/images/avatar/04.jpg' %}" alt="avatar">
 					  <div>
 					    <div class="mb-2">
 					    	<h5 class="m-0">رضا کریمی</h5>
@@ -447,11 +349,7 @@ Main START -->
 						</li>
 					</ul>
 					<!-- Advertisement -->
-					<div class="mt-4">
-						<a href="#" class="d-block card-img-flash">
-							<img src="assets/images/adv.png" alt="">
-						</a>
-					</div>
+					{% include "blog/ads_left_all.html" %}
 				</div>
 			</div>
 			<!-- Right sidebar END -->
