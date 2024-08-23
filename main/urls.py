@@ -23,6 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('' , include('index.urls')),
     path('blog/' , include('blog.urls')),
+    path('captcha/', include('captcha.urls')),
+
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) 

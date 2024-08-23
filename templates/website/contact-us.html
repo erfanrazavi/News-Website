@@ -2,6 +2,8 @@
 {% load static %}
 {% block content %}
 
+
+{% load sweetify %}
 <!-- **************** MAIN CONTENT START **************** -->
 <main>
 
@@ -67,13 +69,15 @@ Contact info START -->
           <h2>تماس با ما</h2>
           <p>لطفا فرم زیر را پر کنید و به زودی با شما تماس خواهیم گرفت. آدرس ایمیل شما منتشر نخواهد شد.</p>
           <!-- Form START -->
-          <form class="contact-form" id="contact-form" name="contactform" method="POST">
+          
+          <form action="{% url "index:contact" %}" method="POST">
+            {% csrf_token %}
             <!-- Main form -->
             <div class="row">
               <div class="col-md-6">
                 <!-- name -->
                 <div class="mb-3">
-                  <input required id="con-name" name="name" type="text" class="form-control" placeholder="نام خانوادگی">
+                  <input required id="con-name" name="fullname" type="text" class="form-control" placeholder="نام خانوادگی">
                 </div>
               </div>
               <div class="col-md-6">
@@ -91,9 +95,13 @@ Contact info START -->
               <div class="col-md-12">
                 <!-- Message -->
                 <div class="mb-3">
-                  <textarea required id="con-message" name="message" cols="40" rows="6" class="form-control" placeholder="متن درخواست"></textarea>
+                  <textarea required id="con-message" name="messages" cols="40" rows="6" class="form-control" placeholder="متن درخواست"></textarea>
                 </div>
               </div>
+              <div class="col-md-12" style="margin:30px 0 40px 0;">
+                {{ form.captcha }}
+              </div>
+            </div>
               <!-- submit button -->
               <div class="col-md-12 text-start"><button class="btn btn-primary w-100" type="submit">ارسال پیام</button></div>
             </div>

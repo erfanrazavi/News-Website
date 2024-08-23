@@ -11,6 +11,8 @@
 	<meta name="author" content="Blogzine">
 	<meta name="description" content="قالب وبلاگ و مجله خبری مبتنی بر بوت استرپ">
 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.5/sweetalert2.all.min.js"></script>
+    
 	<!-- Dark mode -->
 	<script>
 		const storedTheme = localStorage.getItem('theme')
@@ -676,7 +678,11 @@ JS libraries, plugins and custom scripts -->
 
 <!-- Template Functions -->
 <script src="{%static 'assets/js/functions.js' %}"></script>
+
 </body>
 
 </html>
+{% load sweetify %}
+    {% sweetify %}
+
 

@@ -28,6 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,6 +42,9 @@ INSTALLED_APPS = [
     'blog',
     'django_jalali',
     'taggit',
+    'sweetify',
+    'captcha',
+
 
 ]
 
@@ -138,3 +142,7 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+#messages error and success
