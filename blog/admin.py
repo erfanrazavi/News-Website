@@ -1,5 +1,5 @@
 from django.contrib import admin
-from blog.models import Post
+from blog.models import Post , Category
 
 # Register your models here.
 
@@ -12,4 +12,10 @@ class PostAdmin(admin.ModelAdmin):
     empty_value_display = "-empty-"
     search_fields = ["content"]
     list_editable = ("status",)
+    
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    
+    list_display = ["name" ]
+    
     

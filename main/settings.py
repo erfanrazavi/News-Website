@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'index',
     'blog',
     'django_jalali',
+    'taggit',
+
 ]
 
 MIDDLEWARE = [

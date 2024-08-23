@@ -20,21 +20,11 @@
         </ul>
         <!-- Tags -->
         <ul class="list-inline text-primary-hover mt-0 mt-lg-3">
+            {% for tag in posts.tags.all %}
           <li class="list-inline-item">
-              <a class="text-body" href="#">#ورزش</a>
+              <a class="text-body" href="{% url "blog:tag" tag_name=tag.name %}">#{{tag.name}}</a>
           </li>
-          <li class="list-inline-item">
-              <a class="text-body" href="#">#فیلم</a>
-          </li>
-          <li class="list-inline-item">
-              <a class="text-body" href="#">#رسانه</a>
-          </li>
-          <li class="list-inline-item">
-              <a class="text-body" href="#">#برگزیده</a>
-          </li>
-          <li class="list-inline-item">
-              <a class="text-body" href="#">#استارت آپ</a>
-          </li>
+          {% endfor %}
         </ul>
     </div>
 </div>
