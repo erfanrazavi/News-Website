@@ -176,10 +176,10 @@ Header START -->
 					</li>
 					{% if user.is_authenticated %}
 						<a class="nav-link" href="#">نام کاربری : `{{request.user.username}}`</a>
-						<a class="nav-link" href="{% url "index:logout" %}">خروج از حساب کاربری</a>
+						<a class="nav-link" href="{% url "accounts:logout" %}">خروج از حساب کاربری</a>
 					{% else %}
 					<li class="nav-item">
-						<a class="nav-link" href="{% url "index:signin" %}">ورود / ثبت نام</a>
+						<a class="nav-link" href="{% url "accounts:signin" %}">ورود / ثبت نام</a>
 					</li>
 					{% endif %}
 				</ul>
@@ -310,8 +310,8 @@ Header START -->
 							<!-- Dropdown submenu -->
 							
 							
-							<li> <a class="dropdown-item" href="{% url "index:signin" %}">ورود</a></li>
-							<li> <a class="dropdown-item" href="{% url "index:signup" %}">ثبت نام</a></li>
+							<li> <a class="dropdown-item" href="{% url "accounts:signin" %}">ورود</a></li>
+							<li> <a class="dropdown-item" href="{% url "accounts:signup" %}">ثبت نام</a></li>
 							
 							<!-- Dropdown submenu levels -->
 							
