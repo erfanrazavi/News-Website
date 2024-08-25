@@ -14,16 +14,17 @@ Inner intro START -->
         <div class="p-4 p-sm-5 bg-primary bg-opacity-10 rounded">
 					<h2>ورود به حساب کاربری</h2>
 					<!-- Form START -->
-					<form class="mt-4">
+					<form class="mt-4" method='post' action='{% url "index:signin" %}' >
+						{% csrf_token %}
 						<!-- Email -->
 						<div class="mb-3">
-							<label class="form-label" for="exampleInputEmail1">پست الکترونیکی</label>
-							<input type="email" class="form-control" id="exampleInputEmail1" placeholder="ایمیل">
+							<label class="form-label" >پست الکترونیکی</label>
+							<input name="username" type="username" class="form-control" placeholder="ایمیل">
 						</div>
 						<!-- Password -->
 						<div class="mb-3">
 							<label class="form-label" for="exampleInputPassword1">رمز عبور</label>
-							<input type="password" class="form-control" id="exampleInputPassword1" placeholder="*********">
+							<input name="password" type="password" class="form-control" placeholder="*********">
 						</div>
 						<!-- Checkbox -->
 						<div class="mb-3 form-check">

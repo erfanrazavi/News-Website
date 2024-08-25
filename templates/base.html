@@ -174,10 +174,14 @@ Header START -->
 					<li class="nav-item">
 						<a class="nav-link" href="#">آرشیو</a>
 					</li>
-					
+					{% if user.is_authenticated %}
+						<a class="nav-link" href="#">نام کاربری : `{{request.user.username}}`</a>
+						<a class="nav-link" href="{% url "index:logout" %}">خروج از حساب کاربری</a>
+					{% else %}
 					<li class="nav-item">
 						<a class="nav-link" href="{% url "index:signin" %}">ورود / ثبت نام</a>
 					</li>
+					{% endif %}
 				</ul>
 				<!-- Top bar right -->
 				<div class="d-flex align-items-center">

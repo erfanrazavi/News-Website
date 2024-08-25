@@ -4,6 +4,7 @@ from index.forms import ContactForm
 from django.contrib import messages
 from django.urls import reverse
 import sweetify
+from django.contrib.auth import authenticate, login , logout
 
 
 
@@ -38,7 +39,21 @@ def contact_views(request):
 
 
 def signin_views(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request , username=username , password=password)
+        if user is not None:
+            login(request , user)
+            return redirect('/')
+        else:
+            redirect(reverse('index:signin'))
+    
     return render(request ,'website/signin.html')
 
 def signup_views(request):
     return render(request ,'website/signup.html')
+
+def logout_views(request):
+    logout(request)
+    return redirect('/')

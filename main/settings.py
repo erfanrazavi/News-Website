@@ -44,10 +44,19 @@ INSTALLED_APPS = [
     'taggit',
     'sweetify',
     'captcha',
+    # 'allauth',
+    # 'allauth.account',
+    # 'allauth.socialaccount',
+    # 'allauth.socialaccount.providers.google',
 
 
 ]
 
+
+# AUTHENTICATION_BACKENDS = (
+#     'django.contrib.auth.backends.ModelBackend',  # برای استفاده از لاگین‌های معمولی Django
+#     'allauth.account.auth_backends.AuthenticationBackend',  # برای استفاده از allauth
+# )
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
