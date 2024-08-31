@@ -40,10 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'index',
     'blog',
+    'accounts',
     'django_jalali',
     'taggit',
     'sweetify',
     'captcha',
+    
     # 'allauth',
     # 'allauth.account',
     # 'allauth.socialaccount',
@@ -151,6 +153,16 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+# login_email
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  # بک‌اند پیش‌فرض
+    'accounts.backends.EmailBackend',             # بک‌اند سفارشی برای ورود با ایمیل
+]
+LOGIN_REDIRECT_URL = '/'
+
 
 
 
