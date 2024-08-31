@@ -13,6 +13,27 @@ from django.contrib.auth.models import User
 # Create your views here.
 def signin_views(request):
     if request.method == "POST":
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+
+            if User.objects.filter(username=username).exists():
+                user = authenticate(request, username=username, password=password)
+                if user is not None:
+                    login(request, user)
+                    sweetify.success(request, 'ورود شما موفقیت آمیز بود', button='حله')
+                    return redirect('/')
+                else:
+                    sweetify.error(request, 'ورود شما با خطا مواجه شد', button='حله')
+        
+          
+    
+    
+   
+    return render(request, 'accounts/signin.html')
+
+
+def signin_views_email(request):
+    if request.method == "POST":
         form = EmailLoginForm(request.POST)
         if form.is_valid():
             email = form.cleaned_data['email']
@@ -31,7 +52,7 @@ def signin_views(request):
         form = EmailLoginForm()
     
     context = {'form': form}
-    return render(request, 'accounts/signin.html', context)
+    return render(request, 'accounts/signin_email.html', context)
 
 
 

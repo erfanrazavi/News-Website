@@ -14,12 +14,12 @@ Inner intro START -->
         <div class="p-4 p-sm-5 bg-primary bg-opacity-10 rounded">
 					<h2>ورود به حساب کاربری</h2>
 					<!-- Form START -->
-					<form class="mt-4" method='post' action='{% url "accounts:signin" %}' >
+					<form class="mt-4" method='post' action='{% url "accounts:signin_email" %}' >
 						{% csrf_token %}
 						<!-- Email -->
 						<div class="mb-3">
 							<label class="form-label" >پست الکترونیکی</label>
-							<input name="username" type="username" class="form-control" placeholder="نام کاربری">
+							<input name="email" type="email" class="form-control" placeholder="ایمیل">
 						</div>
 						<!-- Password -->
 						<div class="mb-3">
@@ -37,11 +37,8 @@ Inner intro START -->
 								<button type="submit" class="btn btn-success">ورود </button>
 							</div>
 							<div class="col-sm-8 text-sm-end">
-								<span>آیا هنوز ثبت نام نکرده اید؟ <a href="{% url "accounts:signup" %}"><u>ثبت نام</u></a></span><br><br>
-								<span>وارد شوید با :<a href="{% url "accounts:signin_email" %}"><u>ایمیل</u></a></span>
-
+								<span>آیا هنوز ثبت نام نکرده اید؟ <a href="{% url "accounts:signup" %}"><u>ثبت نام</u></a></span>
 							</div>
-							
 						</div>
 					</form>
 					<!-- Form END -->
