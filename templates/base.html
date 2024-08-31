@@ -84,10 +84,36 @@
 
 	<!-- Theme CSS -->
 	<link id="style-switch" rel="stylesheet" type="text/css" href="{%static 'assets/css/style-rtl.css'%}">
-	
+	<style>
+		.alert {
+			position: fixed;
+			top: 10px;
+			right: 10px;
+			padding: 10px;
+			background-color: #f0f0f0;
+			border: 1px solid #ccc;
+			z-index: 1000;
+		}
+		
+		.alert.success {
+			background-color: #d4edda;
+			border-color: #c3e6cb;
+		}
+		
+		.alert.error {
+			background-color: #f8d7da;
+			border-color: #f5c6cb;
+		}
+    </style>
 </head>
 
 <body>
+	<script>setTimeout(function(){
+		var alert = document.querySelector('.alert');
+		if (alert) {
+			alert.style.display = 'none';
+		}
+	}, 5000);</script>
 <!-- Preloader START -->
 	<div class="preloader" style="display:none;">
 		<div class="loader">

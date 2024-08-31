@@ -13,40 +13,62 @@ Inner intro START -->
         <div class="bg-primary bg-opacity-10 rounded p-4 p-sm-5">
 					<h2>ثبت نام در سایت </h2>
 					<!-- Form START -->
-					<form class="mt-4">
-						<!-- Email -->
-						<div class="mb-3">
-							<label class="form-label" for="exampleInputEmail1">نام کاربری</label>
-							<input type="username" class="form-control" placeholder="نام کاربری">
-							
-						</div>
-						<div class="mb-3">
-							<label class="form-label" for="exampleInputEmail1">پست الکترونیکی</label>
-							<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ایمیل">
-							<small id="emailHelp" class="form-text">ما هرگز ایمیل شما را با دیگران به اشتراک نمی گذاریم.</small>
-						</div>
-						<!-- Password -->
-						<div class="mb-3">
-							<label class="form-label" for="exampleInputPassword1">رمز عبور</label>
-							<input type="password" class="form-control" id="exampleInputPassword1" placeholder="*********">
-						</div>
-						<!-- Password -->
-						<div class="mb-3">
-							<label class="form-label" for="exampleInputPassword2">تایید رمز عبور</label>
-							<input type="password" class="form-control" id="exampleInputPassword2" placeholder="*********">
-						</div>
-						<!-- Checkbox -->
-						<div class="mb-3 form-check">
-							<input type="checkbox" class="form-check-input" id="exampleCheck1">
-							<label class="form-check-label" for="exampleCheck1">من می خواهم برای عضویت در خبرنامه نیز ثبت نام کنم</label>
-						</div>
-						<!-- Button -->
+					<form class="mt-4" method="post" action="{% url "accounts:signup" %}">
+						{% csrf_token %}
+							<!-- Email -->
+							<div class="mb-3">
+								<label class="form-label" for="exampleInputEmail1">نام </label>
+								<input name = 'first_name'  class="form-control" placeholder="نام ">
+								
+							</div>
+							<div class="mb-3">
+								<label class="form-label" for="exampleInputEmail1">نام خانوادگی</label>
+								<input name = 'last_name'  class="form-control" placeholder="نام خانوادگی">
+								
+							</div>
+							 <div class="mb-3">
+								<label class="form-label" for="exampleInputEmail1">نام کاربری*</label>
+								<input name = 'username' type="username" class="form-control" placeholder="نام کاربری">
+								
+							</div>
+							<div class="mb-3">
+								<label class="form-label" for="exampleInputEmail1">پست الکترونیکی*</label>
+								<input name = 'email' type="email" class="form-control"  aria-describedby="emailHelp" placeholder="ایمیل">
+								
+							</div>
+				
+							<!-- Password -->
+							<div class="mb-3">
+								<label class="form-label" for="exampleInputPassword1">رمز عبور*</label>
+								<input name ='password1' type="password" class="form-control" id="exampleInputPassword1" placeholder="*********">
+							</div>
+							<!-- Password -->
+							<div class="mb-3">
+								<label class="form-label" for="exampleInputPassword2">تایید رمز عبور*</label>
+								<input name="password2" type="password" class="form-control" id="exampleInputPassword2" placeholder="*********">
+							</div>
+							<!-- Checkbox -->
+							<div class="mb-3 form-check">
+								<input type="checkbox" class="form-check-input" id="exampleCheck1">
+								<label class="form-check-label" for="exampleCheck1">من می خواهم برای عضویت در خبرنامه نیز ثبت نام کنم</label>
+							</div> 
+						
+						{% if messages %}
+							<div>
+								{% for message in messages %}
+									<div class="alert {{ message.tags }}">
+										{{ message }}
+									</div>
+								{% endfor %}
+							</div>
+						{% endif %}
+							<!-- Button -->
 						<div class="row align-items-center">
 							<div class="col-sm-4">
 								<button type="submit" class="btn btn-success">ثبت نام</button>
 							</div>
 							<div class="col-sm-8 text-sm-end">
-								<span>آیا قبلا ثبت نام کرده اید؟ <a href="{% url "accounts:signin" %}"><u>ورود</u></a></span>
+								<span>آیا  قبلا ثبت نام کرده اید؟ <a href="{% url "accounts:signin" %}"><u>ورود</u></a></span>
 							</div>
 						</div>
 					</form>
