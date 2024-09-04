@@ -82,18 +82,27 @@ Main content START -->
 				<!-- Card item END -->
 				<!-- Pagination START -->
 				<nav class="my-5" aria-label="navigation">
+					
 				  <ul class="pagination d-inline-block d-md-flex justify-content-center">
-				    <li class="page-item disabled">
-				      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">قبل</a>
+					{% if posts.has_previous %}
+				    <li class="page-item ">
+				      <a class="page-link" href="?page={{posts.previous_page_number}}" >قبل</a>
 				    </li>
-				    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-				    <li class="page-item"><a class="page-link" href="#">2</a></li>
-				    <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
-				    <li class="page-item"><a class="page-link" href="#">15</a></li>
+					{% endif %}
+					{% for i in posts.paginator.page_range %}
+					{% if posts.number == i %}
+				    <li class="page-item active"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+					{% else %}
+					<li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+					{% endif %}
+				    {% endfor %}
+					{% if posts.has_next %}
 				    <li class="page-item">
-				      <a class="page-link" href="#">بعد</a>
+				      <a class="page-link" href="?page={{posts.next_page_number}}">بعد</a>
 				    </li>
+					{% endif %}
 				  </ul>
+				
 				</nav>
 				<!-- Pagination END -->
 			</div>
