@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
-
+from django.urls import reverse
 
 class Category(models.Model):
     name = models.CharField(max_length=254)
@@ -25,3 +25,8 @@ class Post(models.Model):
     
     def __str__(self) :
         return self.title
+    
+    def get_absolute_url(self):
+        return reverse("blog:blog-single", kwargs={"pid": self.id})
+        pass
+    

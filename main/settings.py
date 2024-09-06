@@ -38,6 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
+    'django.contrib.sites',
+    'django_extensions',
+    'django.contrib.sitemaps',
+    
     'index',
     'blog',
     'accounts',
@@ -54,6 +59,8 @@ INSTALLED_APPS = [
 
 ]
 
+#site frameworks
+SITE_ID = 2
 
 # AUTHENTICATION_BACKENDS = (
 #     'django.contrib.auth.backends.ModelBackend',  # برای استفاده از لاگین‌های معمولی Django
