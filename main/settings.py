@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django_extensions',
     'django.contrib.sitemaps',
+    'robots',
     
     'index',
     'blog',
@@ -61,6 +62,12 @@ INSTALLED_APPS = [
 
 #site frameworks
 SITE_ID = 2
+
+
+#robots.txt
+ROBOTS_USE_HOST = False
+ROBOTS_USE_SITEMAP = False
+
 
 # AUTHENTICATION_BACKENDS = (
 #     'django.contrib.auth.backends.ModelBackend',  # برای استفاده از لاگین‌های معمولی Django
@@ -89,6 +96,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                
             ],
         },
     },
