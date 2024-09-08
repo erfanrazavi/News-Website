@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'django.contrib.sitemaps',
     'robots',
+    'django_summernote',
     
     'index',
     'blog',
@@ -67,6 +68,10 @@ SITE_ID = 2
 #robots.txt
 ROBOTS_USE_HOST = False
 ROBOTS_USE_SITEMAP = False
+
+
+#summernote
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 
 # AUTHENTICATION_BACKENDS = (
